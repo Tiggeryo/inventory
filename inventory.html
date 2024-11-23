@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <style>
+        body {
+            font-family: "Times New Roman", sans-serif;
+            margin: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .list {
+            display: none;
+            margin-top: 10px;
+        }
+        .list ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+
+
+
+
+    
+</head>
+<body>
+    <h1><b>Inventory</b></h1>
+
+    <h1>Searchable Drop-Down Menu</h1>
+    <label for="search-box"><b>Search Options</b>:</label>
+    <input type="text" id="search-box" placeholder="Type to search..." />
+    <button id="addButton">Add</button>
+    <button id="removeButton">Remove</button>
+    <br>
+    <form>
+        <label for="options"><b>What Location</b>:</label>
+        <select id="options" name="options" onchange="showList()">
+            <option value="none">-- Select an option --</option>
+            <optgroup label="Basement">
+                 <option value="option1a">Baking</option>
+                <option value="option1b">Beverages</option>
+                <option value="option1c">Bread</option>
+                <option value="option1d">Breakfast</option>
+                <option value="option1e">Cakes</option>
+                <option value="option1f">Candy</option>
+                <option value="option1g">Canned</option>
+                <option value="option1h">Condiments</option>
+                <option value="option1i">Crackers</option>
+                <option value="option1j">Shells</option>
+                <option value="option1k">Drink mixes</option>
+                <option value="option1l">Granola bars</option>
+                <option value="option1m">Spices</option>
+                <option value="option1n">Jams</option>
+                <option value="option1o">Kitchen Supplies</option>
+                <option value="option1p">Meal Kits</option>
+                <option value="option1q">Noodles & Pasta</option>
+                <option value="option1r">Nuts</option>
+                <option value="option1s">Pudding</option>
+                <option value="option1t">Rice</option>
+                <option value="option1u">Dressings</option>
+                <option value="option1v">Sauces</option>
+                <option value="option1w">Seasoning</option>
+                <option value="option1x">Sides</option>
+                <option value="option1y">Snacks</option>
+                <option value="option1z">Soups</option>
+                <option value="option1aa">Stock & Broth</option>
+                <option value="option1bb">Sugars & Sweeteners</option>
+                <option value="option1cc">Vinegar</option>
+            </optgroup>
+            <optgroup label="Spice Cabinet">
+                <option value="option2a">Spices</option>
+                <option value="option2b">Herbs</option>
+            </optgroup>
+            <optgroup label="Snack Cabinet">
+                <option value="option3a">Chips</option>
+                <option value="option3b">Candy</option>
+            </optgroup>
+            <optgroup label="Fridge">
+                <option value="option4a">Dairy</option>
+                <option value="option4b">Vegetables</option>
+            </optgroup>
+        </select>
+    </form>
+
+    <div id="lists-container">
+        <div class="list" id="list-option1a">
+            <h3>Baking</h3>
+            <ul>
+                <li>Flour</li>
+                <li>Sugar</li>
+                <li>Yeast</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1b">
+            <h3>Beverages</h3>
+            <ul>
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Juice</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1c">
+            <h3>Bread</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1d">
+            <h3>Breakfast</h3>
+            <ul>
+                <li>Cereal</li>
+                <li>Pancake Mix</li>
+                <li>Oatmeal</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1e">
+            <h3>cakes</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1f">
+            <h3>candy</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1g">
+            <h3>canned</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1h">
+            <h3>condiments</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1i">
+            <h3>crackers</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1j">
+            <h3>shells</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1k">
+            <h3>drink mixes</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1l">
+            <h3>granola bars</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1m">
+            <h3>spices</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1n">
+            <h3>jams</h3>
+            <ul>
+                <li>Whole Grain</li>
+                <li>Sourdough</li>
+                <li>Baguette</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1o">
+            <h3>kitchen supplies</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1p">
+            <h3>meal kits</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1q">
+            <h3>noodles & pasta</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1r">
+            <h3>nuts</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1s">
+            <h3>pudding</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1t">
+            <h3>rice</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1u">
+            <h3>dressings</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1v">
+            <h3>sauces</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1w">
+            <h3>seasoning</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1x">
+            <h3>sides</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1y">
+            <h3>snacks</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1z">
+            <h3>soups</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1aa">
+            <h3>stock & broth</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1bb">
+            <h3>sugar & sweeteners</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option1cc">
+            <h3>vinegar</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+
+        <! --start of spice cabnet -->
+        
+        
+        <div class="list" id="list-option2a">
+            <h3>kitchen supplies</h3>
+            <ul>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Garlic Powder</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option2b">
+            <h3>Herbs</h3>
+            <ul>
+                <li>Basil</li>
+                <li>Oregano</li>
+                <li>Rosemary</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option3a">
+            <h3>Chips</h3>
+            <ul>
+                <li>Potato Chips</li>
+                <li>Tortilla Chips</li>
+                <li>Pretzels</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option3b">
+            <h3>Candy</h3>
+            <ul>
+                <li>Chocolate</li>
+                <li>Gummies</li>
+                <li>Hard Candy</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option4a">
+            <h3>Dairy</h3>
+            <ul>
+                <li>Milk</li>
+                <li>Cheese</li>
+                <li>Yogurt</li>
+            </ul>
+        </div>
+        <div class="list" id="list-option4b">
+            <h3>Vegetables</h3>
+            <ul>
+                <li>Carrots</li>
+                <li>Broccoli</li>
+                <li>Spinach</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+    
+
+        
+        function showList() {
+            const lists = document.querySelectorAll('.list');
+            const selectedOption = document.getElementById('options').value;
+
+            // Hide all lists
+            lists.forEach(list => {
+                list.style.display = 'none';
+            });
+
+            // Show the selected list
+            if (selectedOption !== "none") {
+                const selectedList = document.getElementById(`list-${selectedOption}`);
+                if (selectedList) {
+                    selectedList.style.display = 'block';
+                }
+            }
+        }
+
+        // Search Functionality
+        document.getElementById('search-box').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const options = document.querySelectorAll('#options option');
+            const lists = document.querySelectorAll('.list');
+
+            let matchFound = false;
+
+            // Filter main dropdown options
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                const listId = `list-${option.value}`;
+                const list = document.getElementById(listId);
+                let listMatch = false;
+
+                // Check if the option or its list matches the filter
+                if (text.includes(filter)) {
+                    matchFound = true;
+                    option.style.display = '';
+                } else {
+                    option.style.display = 'none';
+                }
+
+                // Check for matches in the associated list
+                if (list) {
+                    const items = list.querySelectorAll('li');
+                    items.forEach(item => {
+                        if (item.textContent.toLowerCase().includes(filter)) {
+                            listMatch = true;
+                            matchFound = true;
+                        }
+                    });
+
+                    // Show or hide the list based on matches
+                    list.style.display = listMatch ? 'block' : 'none';
+                }
+            });
+
+            // Hide all lists if no matches are found
+            if (!matchFound) {
+                lists.forEach(list => {
+                    list.style.display = 'none';
+                });
+            }
+        });
+    </script>
+    <script>
+        let inventory = {};
+
+        // Function to update inventory UI
+        function updateInventoryUI(locationId) {
+            const listContainer = document.getElementById(`list-${locationId}`);
+            const ul = listContainer.querySelector('ul');
+            ul.innerHTML = '';
+
+            // Update the list with items and their counts
+            if (inventory[locationId]) {
+                Object.keys(inventory[locationId]).forEach(item => {
+                    const li = document.createElement('li');
+                    const count = inventory[locationId][item];
+                    li.textContent = `${item} (${count})`;
+                    ul.appendChild(li);
+                });
+            }
+        }
+
+        
+        document.getElementById('addButton').addEventListener('click', () => {
+            const locationId = document.getElementById('options').value;
+            if (locationId === 'none') return alert("Please select a location.");
+
+            const item = prompt("What would you like to add?");
+            const quantity = parseInt(prompt(`How many ${item}(s) would you like to add?`), 10);
+
+            if (item && quantity) {
+                if (!inventory[locationId]) {
+                    inventory[locationId] = {};
+                }
+
+                // Update or add the item with quantity
+                if (inventory[locationId][item]) {
+                    inventory[locationId][item] += quantity;
+                } else {
+                    inventory[locationId][item] = quantity;
+                }
+
+                updateInventoryUI(locationId);
+                alert(`You added ${quantity} ${item}(s) to the ${locationId}.`);
+            } else {
+                alert("Action canceled or incomplete.");
+            }
+        });
+
+        document.getElementById('removeButton').addEventListener('click', () => {
+            const locationId = document.getElementById('options').value;
+            if (locationId === 'none') return alert("Please select a location.");
+
+            const item = prompt("What would you like to remove?");
+            const quantity = parseInt(prompt(`How many ${item}(s) would you like to remove?`), 10);
+
+            if (item && quantity && inventory[locationId] && inventory[locationId][item]) {
+                if (inventory[locationId][item] >= quantity) {
+                    inventory[locationId][item] -= quantity;
+                    if (inventory[locationId][item] === 0) {
+                        delete inventory[locationId][item];
+                    }
+                    updateInventoryUI(locationId);
+                    alert(`You removed ${quantity} ${item}(s) from the ${locationId}.`);
+                } else {
+                    alert("Not enough items to remove.");
+                }
+            } else {
+                alert("Action canceled or item not found.");
+            }
+             // Validate the quantity to ensure it is a number and greater than 0
+            const quantityNumber = parseInt(quantity, 10);
+            if (isNaN(quantityNumber) || quantityNumber <= 0) {
+                return alert("Please enter a valid number greater than 0 for quantity.");
+            }
+        });
+
+        function showList() {
+            const selectedLocation = document.getElementById('options').value;
+            const lists = document.querySelectorAll('.list');
+            lists.forEach(list => {
+                list.style.display = 'none';
+            });
+
+            const listToShow = document.getElementById(`list-${selectedLocation}`);
+            if (listToShow) {
+                listToShow.style.display = 'block';
+            }
+        }
+    </script>
+
+
+    
+</body>
+</html>
